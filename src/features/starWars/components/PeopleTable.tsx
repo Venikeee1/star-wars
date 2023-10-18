@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import { Column, Table } from '../../../UI/table/Table'
+import { Column, Table } from '../../../UI/Table/Table'
 import { usePeopleQuery } from '../starWarsQuery'
 import { formatDate } from '../../../helpers/dateFormat'
 
