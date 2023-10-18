@@ -1,9 +1,6 @@
-import { useMemo } from 'react'
 import { Column, Table } from '../../../UI/Table/Table'
-import { usePeopleQuery } from '../starWarsQuery'
-import { formatDate } from '../../../helpers/dateFormat'
 
-type PeopleTableHead = {
+export type PeopleTableHead = {
 	name: string
 	birthYear: string
 	height: string
@@ -17,21 +14,19 @@ const columns: Column<keyof PeopleTableHead>[] = [
 	{ head: 'Created', key: 'created' },
 ]
 
-export const PeopleTable = () => {
-	const { data, isLoading, isError } = usePeopleQuery()
-	const rows: PeopleTableHead[] = useMemo(() => {
-		if (!data) return []
+type PeopleTableProps = {
+	isError: boolean
+	isLoading: boolean
+	isUpdating: boolean
+	rows: PeopleTableHead[]
+}
 
-		return data.results.map(({ name, created, birth_year, height }) => {
-			return {
-				name,
-				height,
-				created: formatDate(created),
-				birthYear: birth_year,
-			}
-		})
-	}, [data])
-
+export const PeopleTable = ({
+	isError,
+	isLoading,
+	isUpdating,
+	rows,
+}: PeopleTableProps) => {
 	if (isLoading) {
 		return <>Loading...</>
 	}
@@ -40,5 +35,11 @@ export const PeopleTable = () => {
 		return <>Something went wrong</>
 	}
 
-	return <Table<keyof PeopleTableHead> data={rows} columns={columns} />
+	return (
+		<Table<keyof PeopleTableHead>
+			data={rows}
+			columns={columns}
+			isLoading={isUpdating}
+		/>
+	)
 }

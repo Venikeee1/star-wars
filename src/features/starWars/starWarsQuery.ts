@@ -1,17 +1,24 @@
 import { useQuery } from 'react-query'
-import { getPeople, getPerson, searchPeople } from './starWarsApi'
+import { getPeople, getPerson } from './starWarsApi'
 
 const peopleKeys = {
 	namespace: 'people',
-	all: (page?: number) => [peopleKeys.namespace, page ?? 1],
+	all: (page: number, search?: string) => [peopleKeys.namespace, page, search],
 	person: (id: number) => [peopleKeys.namespace, id],
-	search: (name: string, page?: number) => [peopleKeys.namespace, page, name],
 }
 
-export const usePeopleQuery = (page?: number) => {
+export const usePeopleQuery = ({
+	search,
+	page,
+}: {
+	search?: string
+	page?: number
+}) => {
 	return useQuery({
-		queryKey: peopleKeys.all(page),
-		queryFn: () => getPeople(page),
+		queryKey: peopleKeys.all(page ?? 1, search),
+		queryFn: () => getPeople({ page, search }),
+		keepPreviousData: true,
+		staleTime: 2 * 60 * 60,
 	})
 }
 
@@ -19,12 +26,5 @@ export const usePersonQuery = (id: number) => {
 	return useQuery({
 		queryKey: peopleKeys.person(id),
 		queryFn: () => getPerson(id),
-	})
-}
-
-export const usePersonSearchQuery = (name: string, page?: number) => {
-	return useQuery({
-		queryKey: peopleKeys.search(name, page),
-		queryFn: () => searchPeople(name, page),
 	})
 }
