@@ -1,0 +1,10 @@
+@baseUrl = https://swapi.dev/api/
+
+### Get paginated people
+GET {{baseUrl}}/people/
+
+### Get person by id
+GET {{baseUrl}}/people/1
+
+### Search person
+GET {{baseUrl}}/people/?search=Sky
