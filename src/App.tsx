@@ -1,5 +1,6 @@
 import './App.css'
 import { Container } from './UI/Container/Container'
+import { Footer } from './UI/Footer/Footer'
 import { Header } from './UI/Header/Header'
 import { PeopleTable } from './features/starWars/components/PeopleTable'
 
@@ -12,6 +13,7 @@ function App() {
 					<PeopleTable />
 				</Container>
 			</main>
+			<Footer />
 		</div>
 	)
 }
