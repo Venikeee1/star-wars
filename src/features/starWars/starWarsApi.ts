@@ -11,6 +11,8 @@ export const getPerson = (id: number) => {
 	return fetchIt<PersonDTO>(`${baseUrl}people/${id}`)
 }
 
-export const searchPeople = (name: string) => {
-	return fetchIt<PeoplePaginatedDTO>(`${baseUrl}people?search=${name}`)
+export const searchPeople = (name: string, page?: number) => {
+	return fetchIt<PeoplePaginatedDTO>(
+		`${baseUrl}people?search=${name}&page=${page ?? 1}`
+	)
 }
