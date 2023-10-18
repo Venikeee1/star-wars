@@ -1,6 +1,6 @@
 import { ComponentProps } from 'react'
 import StormIcon from './storm.svg?react'
-import audioPath from './assets/blaster.mp3'
+import audioPath from '../../assets/blaster.mp3'
 import { useAudio } from '../../hooks/useAudio'
 
 type PageNumberProps = ComponentProps<'button'> & {

@@ -11,7 +11,7 @@ export const usePagination = ({
 	total,
 	initialPage = 1,
 }: UsePagination) => {
-	const totalPages = Math.floor(total / perPage)
+	const totalPages = Math.floor(total / perPage) || 1
 	const [page, setPage] = useState(initialPage)
 
 	const nextPage = () => {

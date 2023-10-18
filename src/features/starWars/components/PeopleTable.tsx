@@ -36,7 +36,7 @@ export const PeopleTable = ({
 	}
 
 	return (
-		<div className="relative">
+		<div className="relative flex flex-1 flex-col">
 			<Table<keyof PeopleTableHead>
 				data={rows}
 				columns={columns}
