@@ -18,11 +18,11 @@ export const Table = <TKeys extends string = string>({
 }: TableProps<TKeys>) => {
 	return (
 		<div className="rounded-md bg-[#1a1d27] p-2">
-			<table>
+			<table className="w-[100%]">
 				<thead>
 					<tr>
 						{columns.map(({ head, key }) => (
-							<th className="p-2" key={key}>
+							<th className="p-2 text-left" key={key}>
 								{head}
 							</th>
 						))}
