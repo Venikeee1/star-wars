@@ -1,4 +1,4 @@
-import { useQuery } from 'react-query'
+import { useQuery } from '@tanstack/react-query'
 import { getPeople, getPerson } from './starWarsApi'
 
 const peopleKeys = {
@@ -17,7 +17,6 @@ export const usePeopleQuery = ({
 	return useQuery({
 		queryKey: peopleKeys.all(page ?? 1, search),
 		queryFn: () => getPeople({ page, search }),
-		keepPreviousData: true,
 		staleTime: 2 * 60 * 60,
 	})
 }

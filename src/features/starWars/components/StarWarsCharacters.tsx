@@ -13,7 +13,6 @@ export const StarWarsCharacters = () => {
 		isLoading,
 		isFetching,
 		isError,
-		isPreviousData,
 	} = usePeopleQuery({ search: deferredQuery })
 
 	const rows: PeopleTableHead[] = useMemo(() => {
@@ -41,7 +40,7 @@ export const StarWarsCharacters = () => {
 					rows={rows}
 					isError={isError}
 					isLoading={isLoading}
-					isUpdating={isFetching && !isPreviousData}
+					isUpdating={isFetching}
 				/>
 			</div>
 		</section>
