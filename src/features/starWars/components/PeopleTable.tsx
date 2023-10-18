@@ -36,10 +36,12 @@ export const PeopleTable = ({
 	}
 
 	return (
-		<Table<keyof PeopleTableHead>
-			data={rows}
-			columns={columns}
-			isLoading={isUpdating}
-		/>
+		<div className="relative">
+			<Table<keyof PeopleTableHead>
+				data={rows}
+				columns={columns}
+				isLoading={isUpdating}
+			/>
+		</div>
 	)
 }

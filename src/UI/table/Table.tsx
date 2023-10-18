@@ -1,4 +1,5 @@
 import { ReactNode } from 'react'
+import { Loader } from './Loader'
 
 export type Column<TKeys extends string = string> = {
 	head: ReactNode
@@ -20,7 +21,7 @@ export const Table = <TKeys extends string = string>({
 }: TableProps<TKeys>) => {
 	return (
 		<div className="h-full flex-1 rounded-md bg-primary p-2">
-			{isLoading && <>Loading...</>}
+			{isLoading && <Loader />}
 			<table className="w-[100%]">
 				<thead>
 					<tr>
