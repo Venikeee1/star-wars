@@ -1,7 +1,12 @@
 import './App.css'
+import { PeopleTable } from './features/starWars/components/PeopleTable'
 
 function App() {
-	return <></>
+	return (
+		<>
+			<PeopleTable />
+		</>
+	)
 }
 
 export default App
