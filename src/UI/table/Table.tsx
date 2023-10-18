@@ -19,7 +19,7 @@ export const Table = <TKeys extends string = string>({
 	isLoading,
 }: TableProps<TKeys>) => {
 	return (
-		<div className="bg-primary h-full rounded-md p-2">
+		<div className="h-full flex-1 rounded-md bg-primary p-2">
 			{isLoading && <>Loading...</>}
 			<table className="w-[100%]">
 				<thead>

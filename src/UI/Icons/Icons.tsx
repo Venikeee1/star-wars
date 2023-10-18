@@ -3,7 +3,7 @@ import AtAtSvg from './at-at.svg?react'
 
 const icons = {
 	logo: LogoSvg,
-	aTaT: AtAtSvg,
+	atAt: AtAtSvg,
 }
 
 type IconsProps = {
@@ -13,5 +13,5 @@ type IconsProps = {
 
 export const Icon = ({ name, className }: IconsProps) => {
 	const Icon = icons[name]
-	return <Icon className={className + ' text-white'} />
+	return <Icon className={className} />
 }

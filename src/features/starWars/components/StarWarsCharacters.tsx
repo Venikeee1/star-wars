@@ -3,6 +3,7 @@ import { PeopleTable, PeopleTableHead } from './PeopleTable'
 import { usePeopleQuery } from '../starWarsQuery'
 import { formatDate } from '../../../helpers/dateFormat'
 import { useDebounce } from 'usehooks-ts'
+import { Pagination } from '../../../UI/Pagination/Pagination'
 
 export const StarWarsCharacters = () => {
 	const [query, setQuery] = useState('')
@@ -13,6 +14,9 @@ export const StarWarsCharacters = () => {
 		isLoading,
 		isFetching,
 		isError,
+		totalPages,
+		goToPage,
+		page,
 	} = usePeopleQuery({ search: deferredQuery })
 
 	const rows: PeopleTableHead[] = useMemo(() => {
@@ -29,19 +33,28 @@ export const StarWarsCharacters = () => {
 	}, [peopleList])
 
 	return (
-		<section className="h-[470px] w-full">
+		<section className="w-full">
 			<input
 				type="text"
 				className="w-full"
 				onChange={(e) => setQuery(e.target.value)}
 			/>
-			<div className="w-full">
+			<div className="flex min-h-[470px] w-full flex-col">
 				<PeopleTable
 					rows={rows}
 					isError={isError}
 					isLoading={isLoading}
 					isUpdating={isFetching}
 				/>
+			</div>
+			<div className="flex justify-center py-4">
+				{rows.length > 0 && (
+					<Pagination
+						total={totalPages}
+						selectedPage={page}
+						onChange={goToPage}
+					/>
+				)}
 			</div>
 		</section>
 	)
