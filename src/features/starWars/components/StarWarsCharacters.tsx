@@ -4,6 +4,7 @@ import { usePeopleQuery } from '../starWarsQuery'
 import { formatDate } from '../../../helpers/dateFormat'
 import { useDebounce } from 'usehooks-ts'
 import { Pagination } from '../../../UI/Pagination/Pagination'
+import { SearchInput } from './SearchInput'
 
 export const StarWarsCharacters = () => {
 	const [query, setQuery] = useState('')
@@ -34,11 +35,7 @@ export const StarWarsCharacters = () => {
 
 	return (
 		<section className="w-full">
-			<input
-				type="text"
-				className="w-full"
-				onChange={(e) => setQuery(e.target.value)}
-			/>
+			<SearchInput type="text" onChange={(e) => setQuery(e.target.value)} />
 			<div className="flex min-h-[470px] w-full flex-col">
 				<PeopleTable
 					rows={rows}
