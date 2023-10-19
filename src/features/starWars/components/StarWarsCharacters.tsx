@@ -67,6 +67,7 @@ export const StarWarsCharacters = () => {
 				{rows.length > 0 && (
 					<Pagination
 						total={totalPages}
+						limit={window.innerWidth > 600 ? 5 : 3}
 						selectedPage={page}
 						onChange={goToPage}
 					/>

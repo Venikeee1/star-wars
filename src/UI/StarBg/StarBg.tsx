@@ -24,7 +24,7 @@ export const StarBg = () => {
 		<div
 			ref={ref}
 			id="data-stars"
-			className="pointer-events-none absolute bottom-0 left-0 right-0 top-0 -z-10"
+			className="pointer-events-none absolute bottom-0 left-0 right-0 top-0 -z-10 overflow-hidden"
 		></div>
 	)
 }

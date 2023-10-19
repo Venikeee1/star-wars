@@ -22,7 +22,7 @@ export const CharacterDetails = ({ character, id }: CharacterDetailsProps) => {
 		homeworld,
 		species,
 	} = character
-	const imgSrc = `/public/${id}.jpg`
+	const imgSrc = `/${id}.jpg`
 
 	return (
 		<section className="max-w-[500px] md:w-full md:max-w-none">
