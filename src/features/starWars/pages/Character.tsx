@@ -19,5 +19,5 @@ export const Character = () => {
 		return <Container>No data with such id: {id}</Container>
 	}
 
-	return <CharacterDetails character={data} />
+	return <CharacterDetails id={id ?? ''} character={data} />
 }
