@@ -1,12 +1,18 @@
-import { ComponentProps } from 'react'
+import { ChangeEvent, ComponentProps } from 'react'
 import { useAudio } from '../../../hooks/useAudio'
-import audioPath from '../../../assets/you-seek-yoda.mp3'
+import yodaSound from '../../../assets/you-seek-yoda.mp3'
+import lightSaberSoundPath from '../../../assets/light-saber.mp3'
 import { Icon } from '../../../UI/Icons/Icons'
 
 type SearchInputProps = ComponentProps<'input'>
 
 export const SearchInput = (props: SearchInputProps) => {
-	const { play } = useAudio({ path: audioPath })
+	const { play: playYoda } = useAudio({ path: yodaSound })
+	const { play: playSaber } = useAudio({
+		path: lightSaberSoundPath,
+		volume: 0.05,
+		multipleSound: true,
+	})
 
 	return (
 		<div className="relative mb-2">
@@ -21,7 +27,11 @@ export const SearchInput = (props: SearchInputProps) => {
 					placeholder="Search your force"
 					className="font text-md w- w-full border-spacing-2 rounded-md bg-[#3b3b3b] py-3 pl-2 pr-10 focus:outline-cyan-500"
 					onFocus={() => {
-						play()
+						playYoda()
+					}}
+					onInput={(e: ChangeEvent<HTMLInputElement>) => {
+						props.onChange?.(e)
+						playSaber()
 					}}
 				/>
 			</div>
