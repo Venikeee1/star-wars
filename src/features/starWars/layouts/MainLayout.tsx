@@ -46,13 +46,16 @@ export const MainLayout = () => {
 					</div>
 				</div>
 			</div>
-
-			<StarBg />
-			<Header />
-			<main className="flex flex-1 flex-col items-center py-7">
-				<Outlet />
-			</main>
-			<Footer />
+			{exploreMore && (
+				<>
+					<StarBg />
+					<Header />
+					<main className="flex flex-1 flex-col items-center py-7">
+						<Outlet />
+					</main>
+					<Footer />
+				</>
+			)}
 		</div>
 	)
 }
