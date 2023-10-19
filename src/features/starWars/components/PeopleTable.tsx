@@ -1,4 +1,4 @@
-import { Column, Table } from '../../../UI/Table/Table'
+import { Column, Table, TableProps } from '../../../UI/Table/Table'
 
 export type PeopleTableHead = {
 	name: string
@@ -19,6 +19,7 @@ type PeopleTableProps = {
 	isLoading: boolean
 	isUpdating: boolean
 	rows: PeopleTableHead[]
+	onRowClick: TableProps<keyof PeopleTableHead>['onRowClick']
 }
 
 export const PeopleTable = ({
@@ -26,6 +27,7 @@ export const PeopleTable = ({
 	isLoading,
 	isUpdating,
 	rows,
+	onRowClick,
 }: PeopleTableProps) => {
 	if (isLoading) {
 		return <>Loading...</>
@@ -41,6 +43,7 @@ export const PeopleTable = ({
 				data={rows}
 				columns={columns}
 				isLoading={isUpdating}
+				onRowClick={onRowClick}
 			/>
 		</div>
 	)

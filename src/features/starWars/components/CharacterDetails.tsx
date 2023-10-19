@@ -54,13 +54,17 @@ export const CharacterDetails = ({ character, id }: CharacterDetailsProps) => {
 						</CharacterAttribute>
 						<CharacterAttribute label="Height:">{height}</CharacterAttribute>
 						<CharacterAttribute label="Species:">
-							{species.map((filmLink) => (
-								<Anchor href={filmLink}>{filmLink}</Anchor>
+							{species.map((item) => (
+								<Anchor key={item} href={item}>
+									{item}
+								</Anchor>
 							))}
 						</CharacterAttribute>
 						<CharacterAttribute label="Films:">
 							{films.map((filmLink) => (
-								<Anchor href={filmLink}>{filmLink}</Anchor>
+								<Anchor key={filmLink} href={filmLink}>
+									{filmLink}
+								</Anchor>
 							))}
 						</CharacterAttribute>
 					</div>

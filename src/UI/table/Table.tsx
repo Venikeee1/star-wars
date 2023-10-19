@@ -12,12 +12,14 @@ export type TableProps<TKeys extends string> = {
 	data: Row<TKeys>[]
 	columns: Array<Column<TKeys>>
 	isLoading?: boolean
+	onRowClick?: (row: Row<TKeys>) => void
 }
 
 export const Table = <TKeys extends string = string>({
 	data,
 	columns,
 	isLoading,
+	onRowClick,
 }: TableProps<TKeys>) => {
 	return (
 		<div className="h-full flex-1 rounded-md bg-primary p-2">
@@ -34,7 +36,11 @@ export const Table = <TKeys extends string = string>({
 				</thead>
 				<tbody>
 					{data.map((row, index) => (
-						<tr key={index}>
+						<tr
+							key={index}
+							onClick={() => onRowClick?.(row)}
+							className="hover:cursor-pointer hover:bg-slate-500"
+						>
 							{columns.map(({ key }) => (
 								<td className="p-2" key={key}>
 									{row[key]}

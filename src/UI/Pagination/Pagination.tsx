@@ -33,7 +33,6 @@ export const Pagination = ({
 	const endPage = startPage + limit
 	const currentPages =
 		pages.length > limit ? pages.slice(startPage, endPage) : pages
-	console.log({ currentPages, pages, total })
 
 	const handlePrevPage = () => {
 		onChange(selectedPage - 1)
