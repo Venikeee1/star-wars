@@ -2,7 +2,11 @@
 export default {
 	content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
 	theme: {
-		colors: ({ colors }) => ({ ...colors, primary: '#1a1d27' }),
+		colors: ({ colors }) => ({
+			...colors,
+			primary: '#1a1d27',
+			secondary: '#06b6d4',
+		}),
 		extend: {
 			animation: {
 				glove: 'glove 3s ease-in-out infinite',
