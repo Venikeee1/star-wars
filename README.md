@@ -1,6 +1,6 @@
 # Star wars wiki
 
-One of the greatest tool to search for any character in Star Wars universe
+One of the greatest tool to search for any character in Star Wars universe. There are several famous sounds are used here. Therefore take your time and look around
 
 ## Getting started
 
@@ -22,5 +22,5 @@ React query is a nice tool to deal with cache on FE side. No doubt that it is wa
 
 ## TODO
 
-- save search results as get parameters to give user possibility share link
+- save search results as get parameters to give user possibility share to link
 - rewrite usePeopleQuery with infinite query
