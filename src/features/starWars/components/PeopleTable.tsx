@@ -1,3 +1,4 @@
+import { Loader } from '../../../UI/Loader/Loader'
 import { Column, Table, TableProps } from '../../../UI/Table/Table'
 
 export type PeopleTableHead = {
@@ -30,7 +31,11 @@ export const PeopleTable = ({
 	onRowClick,
 }: PeopleTableProps) => {
 	if (isLoading) {
-		return <>Loading...</>
+		return (
+			<div className="flex min-h-[400px] items-center justify-center bg-primary">
+				<Loader />
+			</div>
+		)
 	}
 
 	if (isError) {

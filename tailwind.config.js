@@ -8,6 +8,7 @@ export default {
 				glove: 'glove 3s ease-in-out infinite',
 				move: 'move 1.8s ease-in-out infinite',
 				saber: 'saber 2.5s ease-in-out infinite',
+				pulsing: 'pulsing 2.5s ease-in-out infinite',
 			},
 			keyframes: {
 				move: {
@@ -21,6 +22,10 @@ export default {
 				saber: {
 					'0%, 100%': { 'box-shadow': '0 0 4px red' },
 					'50%': { 'box-shadow': '0 0 17px red' },
+				},
+				pulsing: {
+					'0%, 100%': { opacity: 1 },
+					'50%': { opacity: 0.3 },
 				},
 			},
 		},

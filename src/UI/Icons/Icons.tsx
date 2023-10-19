@@ -1,11 +1,13 @@
 import LogoSvg from './logo.svg?react'
 import AtAtSvg from './at-at.svg?react'
 import YodaSvg from './yoda.svg?react'
+import PrincesSvg from './girl.svg?react'
 
 const icons = {
 	logo: LogoSvg,
 	atAt: AtAtSvg,
 	yoda: YodaSvg,
+	princes: PrincesSvg,
 }
 
 type IconsProps = {
