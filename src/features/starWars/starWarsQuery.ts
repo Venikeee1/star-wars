@@ -6,7 +6,7 @@ import { usePagination } from '../../hooks/usePagination'
 const peopleKeys = {
 	namespace: 'people',
 	all: (page: number, search?: string) => [peopleKeys.namespace, page, search],
-	person: (id: number) => [peopleKeys.namespace, id],
+	person: (id: string) => [peopleKeys.namespace, id],
 }
 
 // TODO refactor it to Infinite Query
@@ -48,7 +48,7 @@ export const usePeopleQuery = ({ search }: { search?: string }) => {
 	}
 }
 
-export const usePersonQuery = (id: number) => {
+export const usePersonQuery = (id: string) => {
 	return useQuery({
 		queryKey: peopleKeys.person(id),
 		queryFn: () => getPerson(id),
