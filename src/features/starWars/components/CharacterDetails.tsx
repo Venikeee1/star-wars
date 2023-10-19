@@ -76,7 +76,7 @@ export const CharacterDetails = ({ character, id }: CharacterDetailsProps) => {
 
 const Anchor = ({ href, children }: PropsWithChildren<{ href: string }>) => {
 	return (
-		<a href={href} className="underline hover:text-[#06b6d4]">
+		<a href={href} target="_blank" className="underline hover:text-[#06b6d4]">
 			{children}{' '}
 		</a>
 	)
